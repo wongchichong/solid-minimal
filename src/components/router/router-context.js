@@ -1,17 +1,17 @@
-import { createState, createContext, useContext } from "solid-js";
+// import { createSignal, createContext, useContext } from "solid-js"
 
-const RouterContext = createContext([{ history: null }, {}]);
+// const RouterContext = createContext([{ history: null }, {}])
 
-export function RouterProvider(props) {
-  const [state, setState] = createState({ history: props.history || null });
-  const store = [state];
+// export function RouterProvider(props) {
+//     const [state, setState] = createSignal({ history: props.history || null })
+//     const store = [state]
 
-  // prettier-ignore
-  return <RouterContext.Provider value={store}>{(
-    props.children
-  )}</RouterContext.Provider>
-}
+//     // prettier-ignore
+//     return <RouterContext.Provider value={store[0]()}>{(
+//         props.children
+//     )}</RouterContext.Provider>
+// }
 
-export function useRouter() {
-  return useContext(RouterContext);
-}
+// export function useRouter() {
+//     return useContext(RouterContext)
+// }

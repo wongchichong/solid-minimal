@@ -1,6 +1,6 @@
-const webpack = require('webpack');
+const webpack = require('webpack')
 
-const paths = require('./paths');
+const paths = require('./paths')
 
 module.exports = {
     mode: 'development',
@@ -16,7 +16,7 @@ module.exports = {
         assetFilter: assetFilename => {
             return (
                 assetFilename.endsWith('.css') || assetFilename.endsWith('.js')
-            );
+            )
         }
     },
     optimization: {
@@ -25,14 +25,16 @@ module.exports = {
         }
     },
     devServer: {
-        contentBase: paths.outputPath,
         compress: true,
         hot: true,
         historyApiFallback: true,
-        port: process.env.PORT || 8080
+        port: process.env.PORT || 8080,
+        static: {
+            directory: paths.outputPath,
+        }
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin()
     ],
     devtool: 'source-map'
-};
+}
